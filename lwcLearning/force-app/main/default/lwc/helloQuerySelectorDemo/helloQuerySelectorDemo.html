@@ -1,0 +1,14 @@
+<!-- sldsValidatorIgnore -->
+<template>
+   <lightning-card title="queryselector">
+        <div class="slds-var-m-around_medium">
+            <h1>I'm the heading</h1>
+            <template for:each={userNames} for:item="user">
+                <div class="name" key={user}>{user}</div>
+            </template>
+            <button onclick={fetchDetailHandler}>Fetch Detail</button>
+        </div>
+
+   </lightning-card>
+    
+</template>

@@ -1,0 +1,10 @@
+.showMessage {
+    color: magenta;
+}
+
+.greetMessage{
+    color: turquoise;
+    font-family: 'Brush Script MT';
+    font-style: "oblique";
+    font-size: xx-large;
+}
