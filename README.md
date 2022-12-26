@@ -2,7 +2,25 @@
 
 ---
 
-## **_<ins>DevHub vs Scratch org</ins>_**
+- [Salesforce Org](#salesforce-org)
+  - [Dev Org](#dev-hub)
+  - [Scratch Org](#scratch-org)
+- [LifeCycle Hooks](#lwc-lifecycle)
+  - [render()](#render-method)
+
+---
+
+## **_<ins>Salesforce Org</ins>_**
+
+    A deployment of Salesforce with a defined set of licensed users. An organization is the virtual space provided to an individual customer of Salesforce. Your organization includes all of your data and applications, and is separate from all other organizations.
+
+**_Types of org_**
+There are two broad categories of org:
+
+    - Production instances
+    - Development instances
+
+> **_NOTE:_** Check here for more details (https://docs.gearset.com/en/articles/2285301-salesforce-organizations)
 
 ### **Dev Hub**
 
@@ -58,3 +76,15 @@ So main three lifecycle methods are
 
    - This hook flows from **<ins>Parent to child<ins>**.
    - We use this lifecyle hook to purge caches or removing event listeners that are created on _connectedCallback()_.
+
+5. **_<ins>errorCallBack(err,stack)<ins>_**
+
+   - This method is is unique to Lightning Web Components. Implement it to create an error boundary component that captures errors in all the **descendent components** in its tree.
+   - It captures errors that occur in the descendant's lifecycle hooks or during an event handler declared in an HTML template.
+   - the **err** argument is a javaScript native error object, and the **stack** argument is a string.
+
+### **_<ins>render() Method<ins>_**:
+
+- **if:true/if;false** is recommend whenever there is small template to hide and show.
+- wherever we have two design in same compoment but do not want to mix the HTML in one file.
+- recommecned when we have conditional rendering of a component which have multiple HTML files.
