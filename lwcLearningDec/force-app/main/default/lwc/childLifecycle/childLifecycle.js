@@ -11,4 +11,8 @@ export default class ChildLifecycle extends LightningElement {
     renderedCallback() {
         console.log("Child renderCallBack invoked");
     }
+    disconnectedCallback() {
+        alert("Child component will be removed!!");
+        console.log("Child disconnectedCall back invoked");
+    }
 }
