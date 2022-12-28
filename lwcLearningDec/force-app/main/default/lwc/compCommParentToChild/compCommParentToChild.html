@@ -1,0 +1,16 @@
+<template>
+
+    <!-- 
+        In this example message and footer-note data are being sent to child component from parent as component attributes.
+        @api message and @api footerNote properties are declared in child component
+        
+        footerNote is converted to kebab-case for component attribute
+    -->
+    <lightning-card title="Communication from Parent To child by property">
+            <c-child-comm-component 
+                message="This is message from papa"
+                footer-note="This is footer set by papa">
+            </c-child-comm-component>
+    </lightning-card>
+   
+</template>

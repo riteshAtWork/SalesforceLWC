@@ -32,5 +32,10 @@
         <members>*</members>
         <name>StaticResource</name>
     </types>
+    <!-- this is register the LMS-->
+    <types>
+        <members>*</members>
+        <name>SampleMessageChannel</name>
+    </types>
     <version>55.0</version>
 </Package>

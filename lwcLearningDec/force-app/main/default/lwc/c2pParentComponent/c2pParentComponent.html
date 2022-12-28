@@ -1,0 +1,17 @@
+<template>
+    <div class="slds-brand-band slds-brand-band_medium">
+        <lightning-card title="Example 4 Child ➡️ Parent comm">
+            <lightning-button variant="brand" label="Show Modal" title="Primary action" onclick={showModalHandler}
+                class="slds-var-m-left_x-small">
+            </lightning-button>
+        </lightning-card>
+
+        <lightning-card title="Subscribe the Publish event">
+            <lightning-badge label={publishedMessage}></lightning-badge>
+        </lightning-card>
+        <template if:true={isModalVisible}>
+            <c-c2p-child-component onclosemodal={closeModalHandler}></c-c2p-child-component>
+        </template>
+
+    </div>
+</template>

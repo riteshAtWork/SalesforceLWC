@@ -1,0 +1,22 @@
+<template>
+    <!-- 
+            In this example message and footer-note data are being sent to child component from parent as component attributes.
+            @api message and @api footerNote properties are declared in child component
+            
+            footerNote is converted to kebab-case for component attribute
+        -->
+    <lightning-card title="Communication from Parent To child by Action">
+        <lightning-input type="number" label="Enter some text" value={progressStatus} onkeyup={handleProgressData}
+            style="margin: 15px;">
+        </lightning-input>
+        <c-child-component-action message="This message from Parent" progress-percentage={progressStatus}>
+        </c-child-component-action>
+    </lightning-card>
+    <!---Example of Calling child Method from parent-->
+    <lightning-card title="Calling child method from parent">
+        <lightning-button variant="brand" label="Reset Slider" onclick={handleClick}
+            class="slds-var-m-left_small"></lightning-button>
+        <c-child-slider-component></c-child-slider-component>
+    </lightning-card>
+
+</template>

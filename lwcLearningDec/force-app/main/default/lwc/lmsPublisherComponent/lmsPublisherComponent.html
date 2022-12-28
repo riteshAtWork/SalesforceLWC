@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="LMS Publisher Component">
+        <div class="slds-var-m-around_medium">
+            <lightning-input type="text" label="Enter the message here to publish"
+                onkeyup={textChangeHandler}></lightning-input>
+        </div>
+        <div class="slds-m-around_medium">
+            <lightning-button label="Publish" onclick={publishMessage}></lightning-button>
+        </div>
+    </lightning-card>
+</template>
