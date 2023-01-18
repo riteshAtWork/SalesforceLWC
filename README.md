@@ -166,3 +166,202 @@ Component communication can can happen in two way.
    - Another components implements subscribe/unsubscribe.
 
    > **_NOTE_**: In containers that don’t support Lightning Messaging Service, use the pubsub module.
+
+---
+
+---
+
+## **_<ins>Getters & Setters in LWC<ins>_**
+
+    When a lightning web component receives data, there are two basic operations that are performed - reacting and storing. For simple use cases, you declare an @api property and it accepts the data passed in. However, you can execute logic each time a public property(@api) is set when using a custom setter for the property
+
+    If you are passing a string or an object into a component without having to do any modification or normalizing on the properties. Declaring the property with @api annotation covers this scenario, the @api annotation exposes the property as public.
+
+> Example
+
+```
+    /** parentComponent.html */
+    <template>
+        <!-- Call our component and pass the person object -->
+        <c-getters-and-setters-example person={personObject}></c-getters-and-setters-example>
+    </template>
+    }
+
+    /** parentComponent.js */
+    import {LightningElement} from 'lwc';
+
+    export default class ParentComponent extends LightningElement {
+        //Sample person object
+        personObject = {
+            Name:"John doe",
+            Age:55
+        }
+    }
+
+    /** childComponent.html*/
+    <!-- Getters And Setters Example -->
+    <template>
+    <!-- Use Slds styling -->
+        <div class="slds-grid slds-grid_align-center">
+            <!-- Use lightning card as extra styling -->
+            <lightning-card title="Person Details" icon-name="standard:contact" class="slds-col slds-size_2-of-12">
+                <!-- Display Person Details -->
+                <ul class="slds-m-around_large">
+                    <li style={personObject.Style}>Name: {personObject.Name}</li>
+                    <li>Age: {personObject.Age}</li>
+                </ul>
+            </lightning-card>
+        </div>
+    </template>
+
+    /** childComponent.js */
+    import {LightningElement, api} from 'lwc';
+    export default class GettersAndSettersExample extends LightningElement {
+
+    _personObject;
+    //Public property
+    @api
+    get person(){
+        return this._personObject;
+    }
+    //setter method to modify the public propeerty/object
+    set person(value){
+        let tempObject = {
+            //Use a spread operator
+            ...value,
+            //Make name upperCase
+            Name: value.Name.toUpperCase(),
+            //Add a new field to store some CSS to make the background light blue
+            Style : 'background:lightblue'
+        };
+
+        //Set personObject property to our new updated person object
+        this._personObject = tempObject;
+    }
+
+```
+
+> **NOTE**:Objects that are passed to components are Read Only, therefore we cannot modify teh objects directly.<br>
+> To mutate/modify it we need to create a shallow copy of the object and then modify it.<br>
+> We can use sread oprator (...object, field:newValue) to make shallow copy
+
+[Reference for the getter & Setter](https://www.levelupsalesforce.com/lwc-getters-and-setters#:~:text=Using%20getters%20and%20setters%20in,with%20a%20light%20blue%20background)
+
+---
+
+---
+
+## **_<ins>SLOTS in LWC<ins>_**
+
+    When you want to send markup (maybe some HTML code or HTML markup with predefined slds class names) from parent component to child component this is where slots in LWC are used.<br>
+    So the point is, use properties to send data from parent to child components and use slots to send markup from parent to child component.
+
+```
+/** childComponent.html */
+    <template>
+        <h1>Child component</h1>
+        <div>
+            <slot></slot>
+        </div>
+    </template>
+
+/** parentComponent.html */
+    <template>
+        <h1>parent header</h1>
+        <c-child-component>
+            <p>markup from parent</p>
+        </c-child-component>
+    </template>
+```
+
+**There are two types of slots**
+
+- _Unnamed Slot_ -
+- _Names Slot_ -
+
+---
+
+---
+
+## **_<ins>Toast Notification LWC<ins>_**
+
+- A component can send a toast notification that pops up to alert users of a success, error, or warning. A toast can also simply provide information.
+
+- To display a toast notification in Lightning Experience or Experience Builder sites, import **ShowToastEvent** from the **'lightning/platformShowToastEvent'** module.
+
+```
+import { LightningElement } from 'lwc';
+import {ShowToastEvent} from 'lightning/platformShowToastEvent'
+export default class Notifications extends LightningElement {
+
+    toastHandler(){
+
+    showToast(title, message, variant){
+        const event = new ShowToastEvent({
+            title: "Toast Title",
+            message: "Message Body",
+            variant: "variant",
+            messageData: data,
+            mode:'mode'
+        })
+        this.dispatchEvent(event)
+    }
+}
+```
+
+## [Check here for more detail](https://developer.salesforce.com/docs/component-library/documentation/en/lwc/use_toast)
+
+---
+
+---
+
+## **_<ins>Navigation in LWC<ins>_**
+
+For navigation in LWC will utilize the below modules which is _'NavigationMixing'_ from _'lightning/navigation'_.
+
+**Step 1:** import the _'NavigationMixing'_ from _'lightning/navigation'_.
+
+```
+   import {NavigationMixin} from 'lightning/navigation';
+```
+
+**Step 2:** extent the class to NavigationMixing(LightningElement)
+
+```
+   export default class MyLwcClass extends NavigationMixin(LightningElement) {}
+```
+
+**Step 3:**
+
+```
+  navigationHandler(){
+       this.[NavigationMixin.Navigation]({
+           type: 'type_of_navigation',
+           attributes: {
+               recordId:
+               apiName:
+               ObjectApiName:
+               actionName:
+           },
+           state:{
+
+           }
+       })
+  }
+```
+
+---
+
+---
+
+## **_<ins> Lightning Data Service<ins>_**
+
+LightningWebService_diagram
+
+![this LWC lifecycle diagram](./doc/LightningWebService_diagram.png)
+
+1. Lightning Data Service is a centralized data caching framework and it is built on top of User Interface API.
+2. UI API gives you data and metadata in a single response and also response and also respect CRUD access, field-level secirity settings, and sharings.
+3. LDS displays only records and fields for which users have CRUD access and FLS vivibility.
+4. LDS, Invakidates cache entry when salesforce data and metadata changes.
+5. Optimizez server calls.

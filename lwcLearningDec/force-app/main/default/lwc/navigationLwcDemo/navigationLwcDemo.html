@@ -1,0 +1,97 @@
+<template>
+    <div title="Navigation to Standard Page" class="slds-grid slds-gutters_x-small">
+        <lightning-card title="Navigate To Home" class="slds-col">
+            <lightning-button variant="brand" label="Navigate To Home" onclick={navigateToHome}
+                class="slds-var-m-around_medium">
+            </lightning-button>
+        </lightning-card>
+
+        <lightning-card title="Navigate To Chatter" class="slds-col">
+            <lightning-button variant="brand" label="Navigate To Chatter" onclick={navigateToChatterPage}
+                class="slds-var-m-around_medium">
+            </lightning-button>
+        </lightning-card>
+    </div>
+    <!-- Tab Navigation-->
+    <div title="Tab Navigation" class="slds-grid">
+        <lightning-card title="Navigate to Fundamentals" class="slds-col slds-size_1-of-5">
+            <lightning-button variant="brand" label="LWC Fundamentals" onclick={navigateToFundamentals}
+                class="slds-var-m-around_medium">
+            </lightning-button>
+        </lightning-card>
+        <lightning-card title="Navigate to Tab 2" class="slds-col slds-size_1-of-5">
+            <lightning-button variant="brand" label="Tost Notification" onclick={navigateToNotification}
+                class="slds-var-m-around_medium">
+            </lightning-button>
+        </lightning-card>
+        <lightning-card title="Navigate to Tab  3" class="slds-col slds-size_1-of-5">
+            <lightning-button variant="brand" label="Component communication" onclick={navigateToCommunication}
+                class="slds-var-m-around_medium">
+            </lightning-button>
+        </lightning-card>
+        <lightning-card title="Navigate to Tab  4" class="slds-col slds-size_1-of-5">
+            <lightning-button variant="brand" label="LWC Resouces" onclick={navigateToResurces}
+                class="slds-var-m-around_medium">
+            </lightning-button>
+        </lightning-card>
+        <lightning-card title="Navigate to Tab 5" class="slds-col slds-size_1-of-5">
+            <lightning-button variant="brand" label="Memory game" onclick={navigateToGame}
+                class="slds-var-m-around_medium">
+            </lightning-button>
+        </lightning-card>
+    </div>
+
+    <!-- Object Records-->
+    <div title="Navigation to Standard Object" class="slds-grid">
+        <lightning-card title="Navigate to Object Record Home" class="slds-col slds-size_1-of-4">
+            <lightning-button variant="brand" label="Record Home" onclick={navigateToRecordHome}
+                class="slds-var-m-around_medium">
+            </lightning-button>
+        </lightning-card>
+        <lightning-card title="Navigate to New Record" class="slds-col slds-size_1-of-4">
+            <lightning-button variant="brand" label="New Record" onclick={navigateToNewRecord}
+                class="slds-var-m-around_medium">
+            </lightning-button>
+        </lightning-card>
+        <lightning-card title="New Record with Default values" class="slds-col slds-size_1-of-4">
+            <lightning-button variant="brand" label="New Record Default" onclick={navigateToNewRecordDefault}
+                class="slds-var-m-around_medium">
+            </lightning-button>
+        </lightning-card>
+        <lightning-card title="Navigate to record list view" class="slds-col slds-size_1-of-4">
+            <lightning-button variant="brand" label="List Record Default" onclick={navigateToListView}
+                class="slds-var-m-around_medium">
+            </lightning-button>
+        </lightning-card>
+    </div>
+    <div title="Navigation to Standard Object in diff modes" class="slds-grid">
+        <lightning-card title="Navigate to Object Record in View mode" class="slds-col slds-size_1-of-3">
+            <lightning-button variant="brand" label="View mode" onclick={recordViewMode}
+                class="slds-var-m-around_medium">
+            </lightning-button>
+        </lightning-card>
+        <lightning-card title="Navigate to Object record - Edit mode" class="slds-col slds-size_1-of-3">
+            <lightning-button variant="brand" label="Edit Record" onclick={recordEditMode}
+                class="slds-var-m-around_medium">
+            </lightning-button>
+        </lightning-card>
+        <lightning-card title="Navigate to Files" class="slds-col slds-size_1-of-3">
+            <lightning-button variant="brand" label="Files" onclick={navigateToFiles} class="slds-var-m-around_medium">
+            </lightning-button>
+        </lightning-card>
+    </div>
+    <!-- Navigation miscellaneous-->
+    <div title="Navigation Miscellaneous" class="slds-grid">
+        <lightning-card title="Navigate to Related Records" class="slds-col slds-size_1-of-5">
+            <lightning-button variant="brand" label="Relates Record" onclick={navigateToRelatedList}
+                class="slds-var-m-around_medium">
+            </lightning-button>
+        </lightning-card>
+        <lightning-card title="Navigate to Web Page" class="slds-col slds-size_1-of-5">
+            <lightning-button variant="brand" label="WebPage" onclick={navigateToWebpage}
+                class="slds-var-m-around_medium">
+            </lightning-button>
+        </lightning-card>
+    </div>
+
+</template>

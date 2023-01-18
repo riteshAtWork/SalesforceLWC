@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Static Image Demo">
+        <div>
+            <lightning-button title="Tap Here" label="Tap Here" onclick={btnClickHandler}></lightning-button>
+        </div>
+        <!-- <img src={userImage} alt="Golammber Meri jaan" /> <br> -->
+
+        <template if:true={showGolammber}>
+            <img src={gol} alt="Gol hai" height="300px" width="300px" />
+            <img src={arrow} alt="Arrow hai" />
+            <img src={golammber} alt="Golammber hai" height="300px" width="300px" />
+        </template>
+
+    </lightning-card>
+</template>
